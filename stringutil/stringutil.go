@@ -1,6 +1,8 @@
 // Package stringutil contains utility functions for working with strings.
 package stringutil
 
+import "strings"
+
 // Reverse returns its argument string reversed rune-wise left to right.
 func Reverse(s string) string {
 	r := []rune(s)
@@ -8,4 +10,17 @@ func Reverse(s string) string {
 		r[i], r[j] = r[j], r[i]
 	}
 	return string(r)
+}
+
+func IsPalindrome(s string) bool {
+	i := 0
+	j := len(s) - 1
+	for i < j {
+		if strings.ToLower(string(s[i])) != strings.ToLower(string(s[j])) {
+			return false
+		}
+		i++
+		j--
+	}
+	return true
 }
