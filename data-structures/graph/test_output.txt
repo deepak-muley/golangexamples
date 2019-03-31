@@ -1,0 +1,17 @@
+➜  golang_samples go test --test.v src/github.com/deepak-muley/golangexamples/data-structures/graph/graph_test.go
+=== RUN   Test_graph_DFS_BFS
+A -> B C D 
+B -> F 
+C -> E 
+D -> B 
+E -> 
+F -> 
+
+
+----- Print DFS -----
+|A| |B| |F| |C| |E| |D| |B| |F| 
+----- Print BFS -----
+|A| |B| |C| |D| |F| |E| |B| |F| 
+--- PASS: Test_graph_DFS_BFS (0.00s)
+PASS
+ok      command-line-arguments  0.006s
