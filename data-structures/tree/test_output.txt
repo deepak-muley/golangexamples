@@ -1,0 +1,14 @@
+➜  golang_samples go test --test.v src/github.com/deepak-muley/golangexamples/data-structures/tree/tree_test.go 
+=== RUN   Test_tree_traversals
+Printing Tree
+Value: * Left: + Right: 6
+Value: + Left: 3 Right: 4
+Printing Inorder
+ 3 + 4 * 6
+Printing Preorder
+ * 3 + 4 6
+Printing Postorder
+ 3 + 4 6 *
+--- PASS: Test_tree_traversals (0.00s)
+PASS
+ok      command-line-arguments  0.006s
