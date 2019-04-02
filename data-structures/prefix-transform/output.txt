@@ -1,0 +1,16 @@
+➜  golang_samples go run src/github.com/deepak-muley/golangexamples/prefix-transform/cmd/main.go
+Input:
+1 [A B C]
+2 [A B]
+3 [B]
+4 [A B C D]
+
+Printing current graph
+A (tag:) => B (tag:2) => C (tag:1) => D (tag:4) => 
+B (tag:3) => 
+
+Output:
+1 [2 C]
+2 [A B]
+3 [B]
+4 [1 D]
