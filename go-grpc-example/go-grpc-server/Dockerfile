@@ -1,11 +1,17 @@
-FROM golang:1.10.0
+FROM golang:1.11.0
 
-RUN adduser --disabled-password --gecos '' api
-USER api
 
-WORKDIR /go/src/app
+WORKDIR /go/src/go-grpc-server
 COPY . .
 
+# Enable Go Modules.
+ENV GO111MODULE=on
+
+RUN go mod tidy
+RUN go build ./...
 RUN go install -v ./...
 
-CMD [ "app" ]
+# RUN adduser --disabled-password --gecos '' api
+# USER api
+
+CMD ["go", "run", "cmd/main.go"]

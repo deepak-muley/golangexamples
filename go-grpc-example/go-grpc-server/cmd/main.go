@@ -6,9 +6,10 @@ import (
 	"log"
 	"net"
 
-	pb "golangexamples/go-grpc-example/pingpong-proto/generated/grpc"
+	pb "go-grpc-server/api"
 
 	"google.golang.org/grpc"
+	"github.com/elastic/go-elasticsearch/v8"
 )
 
 const (
@@ -27,6 +28,20 @@ func (s *server) SendPing(ctx context.Context, in *pb.PingRequest) (*pb.PingRepl
 }
 
 func main() {
+
+	es, err := elasticsearch.NewDefaultClient()
+	if err != nil {
+	  log.Fatalf("Error creating the client: %s", err)
+	}
+	
+	log.Println(elasticsearch.Version)
+	res, err := es.Info()
+	if err != nil {
+	  log.Fatalf("Error getting response: %s", err)
+	}
+	
+	log.Println(res)
+
 	lis, err := net.Listen("tcp", port)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
